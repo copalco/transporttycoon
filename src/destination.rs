@@ -5,6 +5,7 @@ use crate::Truck;
 enum Destination {
     Factory,
     Port,
+    Warehouse,
 }
 
 impl Destination {
@@ -12,6 +13,7 @@ impl Destination {
         match (truck.cargo) {
            None => Destination::Factory,
            Some('A') => Destination::Port,
+           Some('B') => Destination::Warehouse,
            _ => panic!("Unexpected!")
         }
     }
@@ -33,5 +35,12 @@ mod tests {
         let mut truck = Truck::new();
         truck.load('A');
         assert_eq!(Destination::of(truck), Destination::Port)
+    }
+
+    #[test]
+    fn destination_for_a_truck_with_b_cargo_is_warehouse() {
+        let mut truck = Truck::new();
+        truck.load('B');
+        assert_eq!(Destination::of(truck), Destination::Warehouse)
     }
 } 
