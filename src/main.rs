@@ -1,3 +1,4 @@
+pub mod destination;
 fn main() {
     println!("Hello, world!");
 }
