@@ -10,7 +10,7 @@ enum Destination {
 
 impl Destination {
     fn of(truck: Truck) -> Destination {
-        match (truck.cargo) {
+        match truck.cargo {
            None => Destination::Factory,
            Some('A') => Destination::Port,
            Some('B') => Destination::Warehouse,
